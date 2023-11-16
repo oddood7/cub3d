@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lib.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lde-mais <lde-mais@student.42.fr>          +#+  +:+       +#+        */
+/*   By: apayen <apayen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 23:20:10 by lde-mais          #+#    #+#             */
-/*   Updated: 2023/11/15 23:20:28 by lde-mais         ###   ########.fr       */
+/*   Updated: 2023/11/16 12:18:03 by apayen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,7 @@ char	**ft_split(char const *s, char c)
 	return (ret);
 }
 
-char	*ft_strjoinlib(const char *s1, const char *s2)
+char	*ft_strjoinlib(char *s1, char *s2)
 {
 	int		i;
 	int		j;
@@ -126,5 +126,5 @@ char	*ft_strjoinlib(const char *s1, const char *s2)
 		j++;
 	}
 	str[i + j] = '\0';
-	return (str);
+	return (free(s1), str);
 }

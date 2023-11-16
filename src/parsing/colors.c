@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   colors.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lde-mais <lde-mais@student.42.fr>          +#+  +:+       +#+        */
+/*   By: apayen <apayen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 23:19:04 by lde-mais          #+#    #+#             */
-/*   Updated: 2023/11/15 23:19:07 by lde-mais         ###   ########.fr       */
+/*   Updated: 2023/11/16 13:05:04 by apayen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,8 +66,21 @@ void	check_color_syn(t_mlx *game, char **tab)
 	}
 }
 
-void	do_colors(t_mlx *game, char **tab, char c)
+void	do_colors(t_mlx *game, char **tab, char c, char *str)
 {
+	if (check_str(str) == 1)
+	{
+		printf("Error\ntoo many informations in colors : \
+		%s\n", str);
+		free(game->so);
+		free(game->we);
+		free(game->ea);
+		free(game->no);
+		free_tab(tab);
+		free_tab(game->firstmap->fmap);
+		free(game->firstmap);
+		exit(1);
+	}
 	if (c == 'C')
 	{
 		game->ceiling.red = ft_atoi(tab[0]);
@@ -96,7 +109,7 @@ int	floor_ceiling_color(t_mlx *game, char *str)
 	{
 		i += 2;
 		tab = ft_split(&str[i], ',');
-		do_colors(game, tab, 'C');
+		do_colors(game, tab, 'C', &str[i]);
 		check_color_syn(game, tab);
 		free_tab(tab);
 		return (1);
@@ -105,7 +118,7 @@ int	floor_ceiling_color(t_mlx *game, char *str)
 	{
 		i += 2;
 		tab = ft_split(&str[i], ',');
-		do_colors(game, tab, 'F');
+		do_colors(game, tab, 'F', &str[i]);
 		check_color_syn(game, tab);
 		free_tab(tab);
 		return (1);

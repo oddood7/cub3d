@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycast.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lde-mais <lde-mais@student.42.fr>          +#+  +:+       +#+        */
+/*   By: apayen <apayen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 14:03:32 by lde-mais          #+#    #+#             */
-/*   Updated: 2023/11/15 23:15:23 by lde-mais         ###   ########.fr       */
+/*   Updated: 2023/11/16 11:59:01 by apayen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	init_delta(t_ray *ray, int x)
 	if (ray->raydirx != 0)
 		ray->deltadistx = ft_floatabs(1 / ray->raydirx);
 	else
-		ray->deltadistx = 1e30;		
+		ray->deltadistx = 1e30;
 	if (ray->raydiry != 0)
 		ray->deltadisty = ft_floatabs(1 / ray->raydiry);
 	else

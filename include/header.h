@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   header.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lde-mais <lde-mais@student.42.fr>          +#+  +:+       +#+        */
+/*   By: apayen <apayen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 10:28:33 by apayen            #+#    #+#             */
-/*   Updated: 2023/11/16 11:40:38 by lde-mais         ###   ########.fr       */
+/*   Updated: 2023/11/16 13:02:56 by apayen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -144,7 +144,7 @@ typedef struct s_ray
 // parsing/colors.c
 int					get_color(t_ray *ray, t_img *texture);
 int					floor_ceiling_color(t_mlx *game, char *str);
-void				do_colors(t_mlx *game, char **tab, char c);
+void				do_colors(t_mlx *game, char **tab, char c, char *str);
 void				check_color_syn(t_mlx *game, char **tab);
 void				check_colors(t_mlx *game, t_color colors, char **tab);
 // parsing/drawing.c
@@ -210,8 +210,9 @@ void				draw_total_frame(t_ray *ray, int x, int y, int lineheight);
 // utils/ft_lib.c
 char				**free_all(char **tab);
 char				**ft_split(char const *s, char c);
-char				*ft_strjoinlib(const char *s1, const char *s2);
+char				*ft_strjoinlib(char *s1, char *s2);
 // utils/ft_lib2.c
+int					check_str(char *str);
 char				*ft_strdup(const char *s);
 char				*ft_strtrim(const char *s1, const char *set);
 

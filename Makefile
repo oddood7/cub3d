@@ -39,7 +39,7 @@ C_FILE		=	parsing/parsing.c \
 				utils/ft_lib2.c \
 				utils/utils.c \
 				utils/utils2.c \
-				cub3d.c 
+				cub3d.c
 
 SRC_DIR		=	./src/
 
@@ -49,10 +49,11 @@ SRC			=	$(addprefix $(SRC_DIR),$(C_FILE))
 
 OBJ			=	$(SRC:.c=.o)
 
-.c.o:
+%.o: %.c
 	$(CC) $(FLAG) -I$(INC_DIR) -c $< -o $@
 
-all: $(NAME)
+all: lib mlx
+	make $(NAME)
 
 lib:
 	@echo "\033[0;33m\nCOMPILING $(LIBFT_PATH)\n"
@@ -64,9 +65,9 @@ mlx:
 	@make -sC $(MLX_PATH)
 	@echo "\033[1;32mMLX_lib created\n"
 
-$(NAME): lib mlx $(OBJ)
+$(NAME): $(OBJ)
 	@echo "\033[0;33m\nCOMPILING CUB3D...\n"
-	$(CC) $(OBJ) $(LIBFT_LIB) $(MLX_EX) -I$(INC_DIR) -o $(NAME)
+	$(CC) $(FLAG) $(OBJ) $(LIBFT_LIB) $(MLX_EX) -lm -I$(INC_DIR) -o $(NAME)
 	@echo "\033[1;32m./cub3d created\n"
 
 clean:

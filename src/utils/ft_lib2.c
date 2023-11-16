@@ -3,14 +3,40 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lib2.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lde-mais <lde-mais@student.42.fr>          +#+  +:+       +#+        */
+/*   By: apayen <apayen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 23:20:32 by lde-mais          #+#    #+#             */
-/*   Updated: 2023/11/15 23:20:34 by lde-mais         ###   ########.fr       */
+/*   Updated: 2023/11/16 13:08:23 by apayen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/header.h"
+
+int	check_str(char *str)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	j = 0;
+	while (str[i] != '\0')
+	{
+		if (str[i] == ',')
+			j++;
+		if (j == 2)
+		{
+			i++;
+			while (str[i] >= '0' && str[i] <= '9')
+				i++;
+			if (str[i] != '\0' && str[i] != '\n')
+				return (1);
+			else
+				return (0);
+		}
+		i++;
+	}
+	return (0);
+}
 
 char	*ft_strdup(const char *s)
 {

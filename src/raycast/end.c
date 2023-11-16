@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   end.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lde-mais <lde-mais@student.42.fr>          +#+  +:+       +#+        */
+/*   By: apayen <apayen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 23:19:45 by lde-mais          #+#    #+#             */
-/*   Updated: 2023/11/15 23:19:47 by lde-mais         ###   ########.fr       */
+/*   Updated: 2023/11/16 12:06:44 by apayen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	free_ray_value(t_ray *ray)
 
 int	close_game(t_ray *ray)
 {
-	printf("GAME OVER");
+	printf("GAME OVER\n");
 	if (ray->texture1)
 		free_img(ray, ray->texture1);
 	if (ray->texture2)
