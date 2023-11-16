@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils3.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: apayen <apayen@student.42.fr>              +#+  +:+       +#+        */
+/*   By: lde-mais <lde-mais@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 13:37:04 by apayen            #+#    #+#             */
-/*   Updated: 2023/11/16 13:45:56 by apayen           ###   ########.fr       */
+/*   Updated: 2023/11/16 18:43:05 by lde-mais         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,4 +52,20 @@ void	check_str(t_mlx *game, char *str, char **tab)
 		free(game->firstmap);
 		exit(1);
 	}
+}
+
+void	init_texture_security(t_ray *ray, t_mlx *game)
+{
+	ray->sno = ft_strdup(game->no);
+	if (!ray->sno)
+		malloc_err(ray, "Error allocating ray->sno");
+	ray->sso = ft_strdup(game->so);
+	if (!ray->sso)
+		malloc_err(ray, "Error allocating ray->sso");
+	ray->sea = ft_strdup(game->ea);
+	if (!ray->sea)
+		malloc_err(ray, "Error allocating ray->sea");
+	ray->swe = ft_strdup(game->we);
+	if (!ray->swe)
+		malloc_err(ray, "Error allocating ray->swe");
 }

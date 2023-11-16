@@ -6,7 +6,7 @@
 /*   By: lde-mais <lde-mais@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 13:20:43 by lde-mais          #+#    #+#             */
-/*   Updated: 2023/11/15 23:16:53 by lde-mais         ###   ########.fr       */
+/*   Updated: 2023/11/16 18:41:09 by lde-mais         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,10 +97,7 @@ void	init_ray(t_ray *ray, t_mlx *game)
 	ray->floor = game->floor;
 	ray->posx = start_pos(ray->map, 0) + 0.5;
 	ray->posy = start_pos(ray->map, 1) + 0.5;
-	ray->sno = ft_strdup(game->no);
-	ray->sso = ft_strdup(game->so);
-	ray->sea = ft_strdup(game->ea);
-	ray->swe = ft_strdup(game->we);
+	init_texture_security(ray, game);
 	free_textures(game);
 	ray->texture1 = NULL;
 	ray->texture2 = NULL;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   header.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: apayen <apayen@student.42.fr>              +#+  +:+       +#+        */
+/*   By: lde-mais <lde-mais@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 10:28:33 by apayen            #+#    #+#             */
-/*   Updated: 2023/11/16 13:45:50 by apayen           ###   ########.fr       */
+/*   Updated: 2023/11/16 18:58:45 by lde-mais         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -162,11 +162,11 @@ size_t				ft_strlen_tab(char **tab);
 char				**map_malloc(char **map);
 double				start_pos(char **tab, int yes);
 // parsing/parsing.c
-void				init(struct s_mlx *game);
+void				init(t_ray *ray, t_mlx *game);
 int					cub_check(char *s);
 int					args_errors(int argc, char *av[]);
-int					init_game(t_mlx *game, char *name);
-int					parsing(struct s_mlx *game, int argc, char **argv);
+int					init_game(t_ray *ray, t_mlx *game, char *name);
+int					parsing(t_ray *ray, t_mlx *game, int argc, char **argv);
 // parsing/parsingmap.c
 int					map_start(char *str);
 int					map_syntax_check(char *str);
@@ -239,5 +239,6 @@ char				**good_map(t_ray *ray, t_mlx *game, char **old);
 // utils/utils3.c
 void				check_str(t_mlx *game, char *str, char **tab);
 int					too_many_infos(char *str);
+void				init_texture_security(t_ray *ray, t_mlx *game);
 
 #endif

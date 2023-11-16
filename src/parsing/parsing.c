@@ -6,16 +6,18 @@
 /*   By: lde-mais <lde-mais@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/28 11:01:14 by apayen            #+#    #+#             */
-/*   Updated: 2023/11/15 23:16:20 by lde-mais         ###   ########.fr       */
+/*   Updated: 2023/11/16 18:58:02 by lde-mais         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/header.h"
 
-void	init(struct s_mlx *game)
+void	init(t_ray *ray, t_mlx *game)
 {
 	game->map = NULL;
 	game->firstmap = malloc(sizeof(t_firstmap));
+	if (!game->firstmap)
+		malloc_err(ray, "Error allocating firstmap struct");
 	game->firstmap->fmap = NULL;
 	game->firstmap->height = 0;
 	game->firstmap->width = 0;
@@ -65,9 +67,9 @@ int	args_errors(int argc, char *av[])
 	return (0);
 }
 
-int	init_game(t_mlx *game, char *name)
+int	init_game(t_ray *ray, t_mlx *game, char *name)
 {
-	init(game);
+	init(ray, game);
 	if (init_map(game->firstmap, name) == -1)
 	{
 		free_tab(game->firstmap->fmap);
@@ -85,11 +87,11 @@ int	init_game(t_mlx *game, char *name)
 	return (0);
 }
 
-int	parsing(struct s_mlx *game, int argc, char **argv)
+int	parsing(t_ray *ray, t_mlx *game, int argc, char **argv)
 {
 	if (args_errors(argc, argv) != 0)
 		return (-1);
-	if (init_game(game, argv[1]) == -1)
+	if (init_game(ray, game, argv[1]) == -1)
 		return (-1);
 	if (texture_files(game) == -1)
 	{
