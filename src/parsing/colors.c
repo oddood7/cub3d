@@ -6,7 +6,7 @@
 /*   By: apayen <apayen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 23:19:04 by lde-mais          #+#    #+#             */
-/*   Updated: 2023/11/16 13:05:04 by apayen           ###   ########.fr       */
+/*   Updated: 2023/11/16 13:44:30 by apayen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,19 +68,7 @@ void	check_color_syn(t_mlx *game, char **tab)
 
 void	do_colors(t_mlx *game, char **tab, char c, char *str)
 {
-	if (check_str(str) == 1)
-	{
-		printf("Error\ntoo many informations in colors : \
-		%s\n", str);
-		free(game->so);
-		free(game->we);
-		free(game->ea);
-		free(game->no);
-		free_tab(tab);
-		free_tab(game->firstmap->fmap);
-		free(game->firstmap);
-		exit(1);
-	}
+	check_str(game, str, tab);
 	if (c == 'C')
 	{
 		game->ceiling.red = ft_atoi(tab[0]);

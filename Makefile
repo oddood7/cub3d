@@ -39,6 +39,7 @@ C_FILE		=	parsing/parsing.c \
 				utils/ft_lib2.c \
 				utils/utils.c \
 				utils/utils2.c \
+				utils/utils3.c \
 				cub3d.c
 
 SRC_DIR		=	./src/

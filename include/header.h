@@ -6,7 +6,7 @@
 /*   By: apayen <apayen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 10:28:33 by apayen            #+#    #+#             */
-/*   Updated: 2023/11/16 13:02:56 by apayen           ###   ########.fr       */
+/*   Updated: 2023/11/16 13:45:50 by apayen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -212,7 +212,6 @@ char				**free_all(char **tab);
 char				**ft_split(char const *s, char c);
 char				*ft_strjoinlib(char *s1, char *s2);
 // utils/ft_lib2.c
-int					check_str(char *str);
 char				*ft_strdup(const char *s);
 char				*ft_strtrim(const char *s1, const char *set);
 
@@ -237,5 +236,8 @@ int					is_not_valid_char(char c);
 void				free_textures(t_mlx *game);
 int					longest_len(char **map);
 char				**good_map(t_ray *ray, t_mlx *game, char **old);
+// utils/utils3.c
+void				check_str(t_mlx *game, char *str, char **tab);
+int					too_many_infos(char *str);
 
 #endif
