@@ -6,7 +6,7 @@
 /*   By: lde-mais <lde-mais@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 16:05:18 by lde-mais          #+#    #+#             */
-/*   Updated: 2023/11/15 13:31:41 by lde-mais         ###   ########.fr       */
+/*   Updated: 2023/11/17 13:36:56 by lde-mais         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,5 +70,31 @@ void	draw_total_frame(t_ray *ray, int x, int y, int lineheight)
 	{
 		do_pixels(ray, x, y, get_rgb(ray, 0));
 		y++;
+	}
+}
+
+void	minimap(t_ray *ray, int x, int y)
+{
+	int	i;
+	int	yt;
+	int	len;
+
+	yt = 0;
+	len = ft_strlen_tab(ray->map);
+	while (yt < len)
+	{
+		i = 0;
+		x = 0;
+		while (i < ft_strlen(ray->map[yt]))
+		{
+			if (i == (int)ray->posy && yt == (int)ray->posx)
+				do_pixel_mm(ray, x, y, 0xFF66F3);
+			else if (ray->map[yt][i] && ray->map[yt][i] == '1')
+				do_pixel_mm(ray, x, y, 0xFFFFF1);
+			x += 6;
+			i++;
+		}
+		y += 6;
+		yt++;
 	}
 }

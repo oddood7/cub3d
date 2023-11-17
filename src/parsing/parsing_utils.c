@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: apayen <apayen@student.42.fr>              +#+  +:+       +#+        */
+/*   By: lde-mais <lde-mais@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 23:19:18 by lde-mais          #+#    #+#             */
-/*   Updated: 2023/11/16 12:17:25 by apayen           ###   ########.fr       */
+/*   Updated: 2023/11/17 13:18:26 by lde-mais         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,8 @@ char	**map_malloc(char **map)
 	{
 		size = len - ft_strlen(map[i]) + 1;
 		tmp = malloc(sizeof(char) * size + 1);
+		if (!tmp)
+			return (NULL);
 		put_space(tmp, size);
 		map[i] = ft_strjoinlib(map[i], tmp);
 		free(tmp);

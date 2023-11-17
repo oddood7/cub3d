@@ -6,7 +6,7 @@
 /*   By: lde-mais <lde-mais@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 10:28:33 by apayen            #+#    #+#             */
-/*   Updated: 2023/11/16 18:58:45 by lde-mais         ###   ########.fr       */
+/*   Updated: 2023/11/17 18:39:49 by lde-mais         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -154,6 +154,7 @@ int					do_drawings2(t_mlx *game, char *str, int i);
 int					do_drawings(t_mlx *game, char *str);
 // parsing/graphic_utils.c
 void				do_pixels(t_ray *ray, int x, int y, int color);
+void				do_pixel_mm(t_ray *ray, int x, int y, int color);
 int					get_rgb(t_ray *ray, int ok);
 // parsing/parsing_utils.c
 void				put_space(char *str, int size);
@@ -187,7 +188,8 @@ int					close_game(t_ray *ray);
 void				init_dir(t_ray *ray);
 void				init_dir2(t_ray *ray);
 void				init_malloc_move(t_ray *ray);
-void				init_malloc_move2(t_ray *ray);
+t_move				*create_move(t_ray *ray, int key);
+// void				init_malloc_move2(t_ray *ray);
 void				init_ray(t_ray *ray, t_mlx *game);
 // raycast/keypress.c
 int					mouse_move(int x, int y, t_ray *ray);
@@ -207,6 +209,7 @@ void				throw_rays(t_ray *ray);
 void				update_texture(t_ray *ray, int line_height);
 void				get_draw_point(t_ray *ray);
 void				draw_total_frame(t_ray *ray, int x, int y, int lineheight);
+void				minimap(t_ray *ray, int x, int y);
 // utils/ft_lib.c
 char				**free_all(char **tab);
 char				**ft_split(char const *s, char c);

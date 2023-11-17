@@ -6,7 +6,7 @@
 /*   By: lde-mais <lde-mais@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 13:20:43 by lde-mais          #+#    #+#             */
-/*   Updated: 2023/11/16 18:41:09 by lde-mais         ###   ########.fr       */
+/*   Updated: 2023/11/17 18:46:48 by lde-mais         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,43 +49,41 @@ void	init_dir2(t_ray *ray)
 	}
 }
 
-void	init_malloc_move(t_ray *ray)
+t_move	*create_move(t_ray *ray, int key)
 {
-	ray->move_w = malloc(sizeof(t_move));
-	if (!ray->move_w)
-		malloc_err(ray, "Error alloc move_w");
-	ray->move_w->key = 119;
-	ray->move_w->yes = FALSE;
-	ray->move_s = malloc(sizeof(t_move));
-	if (!ray->move_s)
-		malloc_err(ray, "Error alloc move_s");
-	ray->move_s->key = 115;
-	ray->move_s->yes = FALSE;
-	ray->move_a = malloc(sizeof(t_move));
-	if (!ray->move_a)
-		malloc_err(ray, "Error alloc move_a");
-	ray->move_a->key = 97;
-	ray->move_a->yes = FALSE;
-	ray->move_d = malloc(sizeof(t_move));
-	if (!ray->move_d)
-		malloc_err(ray, "Error alloc move_d");
-	ray->move_d->key = 100;
-	ray->move_d->yes = FALSE;
-	init_malloc_move2(ray);
+	t_move	*move;
+
+	move = malloc(sizeof(t_move));
+	if (!move)
+	{
+		malloc_err(ray, "Error in malloc");
+		return (NULL);
+	}
+	move->key = key;
+	move->yes = FALSE;
+	return (move);
 }
 
-void	init_malloc_move2(t_ray *ray)
+void	init_malloc_move(t_ray *ray)
 {
-	ray->cam_left = malloc(sizeof(t_move));
+	ray->move_w = create_move(ray, 119);
+	if (!ray->move_w)
+		return ;
+	ray->move_s = create_move(ray, 115);
+	if (!ray->move_s)
+		return ;
+	ray->move_a = create_move(ray, 97);
+	if (!ray->move_a)
+		return ;
+	ray->move_d = create_move(ray, 100);
+	if (!ray->move_d)
+		return ;
+	ray->cam_left = create_move(ray, 65363);
 	if (!ray->cam_left)
-		malloc_err(ray, "Error alloc cam_left");
-	ray->cam_left->key = 65363;
-	ray->cam_left->yes = FALSE;
-	ray->cam_right = malloc(sizeof(t_move));
+		return ;
+	ray->cam_right = create_move(ray, 65361);
 	if (!ray->cam_right)
-		malloc_err(ray, "Error alloc cam_right");
-	ray->cam_right->key = 65361;
-	ray->cam_right->yes = FALSE;
+		return ;
 	ray->cam_mouse_right = 0;
 	ray->cam_mouse_left = 0;
 }

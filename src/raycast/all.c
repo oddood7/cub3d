@@ -6,7 +6,7 @@
 /*   By: lde-mais <lde-mais@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 23:19:34 by lde-mais          #+#    #+#             */
-/*   Updated: 2023/11/15 23:19:41 by lde-mais         ###   ########.fr       */
+/*   Updated: 2023/11/17 13:27:30 by lde-mais         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ int	game_loop(t_ray *ray)
 	}
 	if (ray->mouse_on == 0)
 		mlx_mouse_move(ray->img->mlx, ray->img->win, WIDTH / 2, HEIGHT / 2);
+	minimap(ray, 0, 0);
 	mlx_put_image_to_window(ray->img->mlx, ray->img->win, ray->img->img, 0, 0);
 	key_usage(ray);
 	return (0);

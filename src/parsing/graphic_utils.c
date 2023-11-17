@@ -6,7 +6,7 @@
 /*   By: lde-mais <lde-mais@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/29 17:29:53 by marvin            #+#    #+#             */
-/*   Updated: 2023/11/15 13:32:43 by lde-mais         ###   ########.fr       */
+/*   Updated: 2023/11/17 13:28:51 by lde-mais         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,25 @@ void	do_pixels(t_ray *ray, int x, int y, int color)
 	dest = ray->img->addr + (y * ray->img->line_len) + x * (ray->img->bpp \
 	/ 8);
 	*(int *)dest = color;
+}
+
+void	do_pixel_mm(t_ray *ray, int x, int y, int color)
+{
+	int	tmpx;
+	int	tmpy;
+
+	tmpx = x;
+	tmpy = y;
+	while (y < (tmpy + 6))
+	{
+		x = tmpx;
+		while (x < (tmpx + 6))
+		{
+			do_pixels(ray, x, y, color);
+			x++;
+		}
+		y++;
+	}
 }
 
 int	get_rgb(t_ray *ray, int ok)
