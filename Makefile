@@ -71,6 +71,8 @@ $(NAME): $(OBJ)
 	$(CC) $(FLAG) $(OBJ) $(LIBFT_LIB) $(MLX_EX) -lm -I$(INC_DIR) -o $(NAME)
 	@echo "\033[1;32m./cub3d created\n"
 
+bonus: all
+
 clean:
 	@echo "\033[0;31mDeleting Obj file in $(MLX_PATH)...\n"
 	@make clean -sC $(MLX_PATH)
