@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils3.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lde-mais <lde-mais@student.42.fr>          +#+  +:+       +#+        */
+/*   By: apayen <apayen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 13:37:04 by apayen            #+#    #+#             */
-/*   Updated: 2023/11/16 18:43:05 by lde-mais         ###   ########.fr       */
+/*   Updated: 2023/11/17 09:01:13 by apayen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	too_many_infos(char *str)
 		if (j == 2)
 		{
 			i++;
-			while (str[i] >= '0' && str[i] <= '9')
+			while (str[i] == ' ' || (str[i] >= '0' && str[i] <= '9'))
 				i++;
 			if (str[i] != '\0' && str[i] != '\n')
 				return (1);
