@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   all.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lde-mais <lde-mais@student.42.fr>          +#+  +:+       +#+        */
+/*   By: apayen <apayen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 23:19:34 by lde-mais          #+#    #+#             */
-/*   Updated: 2023/11/17 13:27:30 by lde-mais         ###   ########.fr       */
+/*   Updated: 2023/11/23 09:25:00 by apayen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	assign_mlx_text2(t_ray *ray, int h, int w)
 		malloc_err(ray, "Error alloc texture3");
 	ray->texture3->img = mlx_xpm_file_to_image(ray->img->mlx, ray->swe, &w, &h);
 	if (!ray->texture3->img)
-		return (errorsimp("Error texture3->img"));
+		return ((void)close_game(ray));
 	ray->texture3->addr = mlx_get_data_addr(ray->texture3->img, \
 	&(ray->texture3->bpp), &(ray->texture3->line_len), \
 	&(ray->texture3->endian));
@@ -50,7 +50,7 @@ void	assign_mlx_text2(t_ray *ray, int h, int w)
 		malloc_err(ray, "Error alloc texture4");
 	ray->texture4->img = mlx_xpm_file_to_image(ray->img->mlx, ray->sea, &w, &h);
 	if (!ray->texture4->img)
-		return (errorsimp("Error texture4->img"));
+		return ((void)close_game(ray));
 	ray->texture4->addr = mlx_get_data_addr(ray->texture4->img, \
 	&(ray->texture4->bpp), &(ray->texture4->line_len), \
 	&(ray->texture4->endian));
@@ -66,7 +66,7 @@ void	assign_mlx_text(t_ray *ray)
 		malloc_err(ray, "Error alloc texture1");
 	ray->texture1->img = mlx_xpm_file_to_image(ray->img->mlx, ray->sno, &w, &h);
 	if (!ray->texture1->img)
-		return (errorsimp("Error texture1->img"));
+		return ((void)close_game(ray));
 	ray->texture1->addr = mlx_get_data_addr(ray->texture1->img, \
 	&(ray->texture1->bpp), &(ray->texture1->line_len), \
 	&(ray->texture1->endian));
@@ -75,7 +75,7 @@ void	assign_mlx_text(t_ray *ray)
 		malloc_err(ray, "Error alloc texture2");
 	ray->texture2->img = mlx_xpm_file_to_image(ray->img->mlx, ray->sso, &w, &h);
 	if (!ray->texture2->img)
-		return (errorsimp("Error texture2->img"));
+		return ((void)close_game(ray));
 	ray->texture2->addr = mlx_get_data_addr(ray->texture2->img, \
 	&(ray->texture2->bpp), &(ray->texture2->line_len), \
 	&(ray->texture2->endian));
